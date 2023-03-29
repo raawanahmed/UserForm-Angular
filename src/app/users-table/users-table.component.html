@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="mb-2 mx-3">
+            <label for="ordertotal" class="form-label">Filter:</label>
+            <input type="text" class="form-control" id="filter" name="filter" (keyup)="onKey($event)">
+        </div>
+        <div class="row mx-2">
+            <h2 class="bg-transparent p-3 text-dark">
+                Users List
+            </h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Order Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of filteredList">
+                        <td>{{ user?.firstName }}</td>
+                        <td>{{ user?.lastName }}</td>
+                        <td>{{ user?.address }}</td>
+                        <td>{{ user?.city }}</td>
+                        <td>{{ user?.state }}</td>
+                        <td>{{ user?.orderTotal }}</td>
+                      </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+
+
+</html>

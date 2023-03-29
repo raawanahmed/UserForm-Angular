@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="mx-3">
+            <h2 class="bg-black p-3 text-light">
+                Add User
+            </h2>
+        </div>
+            <form [formGroup]="formData">
+
+                <div class="mb-2 mx-3">
+                    <label for="firstName" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" required minlength="4" id="firstName" name="firstName"
+                        formControlName="firstName">
+                </div>
+
+                <div *ngIf="formData.get('firstName')?.invalid && formData.get('firstName')?.['touched'] ||  formData.get('firstName')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('firstName')?.errors?.['required']" class="alert alert-danger">
+                        First Name Is Required!
+                    </div>
+                    <div *ngIf="formData.controls['firstName'].errors?.['minlength']" class="alert alert-danger">
+                        First Name must be at least 4 characters!
+                    </div>
+                </div>
+
+
+
+                <div class="mb-2 mx-3">
+                    <label for="lastName" class="form-label">Last name:</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName">
+                </div>
+
+                <div *ngIf="formData.get('lastName')?.invalid && formData.get('lastName')?.['touched'] ||  formData.get('lastName')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('lastName')?.errors?.['required']" class="alert alert-danger">
+                        Last Name Is Required!
+                    </div>
+                    <div *ngIf="formData.controls['lastName'].errors?.['minlength']" class="alert alert-danger">
+                        Last Name must be at least 4 characters!
+                    </div>
+                </div>
+
+                <div class="mb-2 mx-3">
+                    <label for="Address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id="Address" name="Address" formControlName="address">
+                </div>
+                <div *ngIf="formData.get('address')?.invalid && formData.get('address')?.['touched'] ||  formData.get('address')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('address')?.errors?.['required']" class="alert alert-danger">
+                        Address Is Required!
+                    </div>
+                </div>
+
+                <div class="mb-2 mx-3">
+                    <label for="city" class="form-label">City:</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+                <div *ngIf="formData.get('city')?.invalid && formData.get('city')?.['touched'] ||  formData.get('city')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('city')?.errors?.['required']" class="alert alert-danger">
+                        City Is Required!
+                    </div>
+                    <div *ngIf="formData.controls['city'].errors?.['minlength']" class="alert alert-danger">
+                        City must be at least 5 characters!
+                    </div>
+                </div>
+
+                <div class="mb-2 mx-3">
+                    <label for="state" class="form-label">State:</label>
+                    <input type="text" class="form-control" id="state" name="state" formControlName="state">
+                </div>
+                <div *ngIf="formData.get('state')?.invalid && formData.get('state')?.['touched'] ||  formData.get('state')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('state')?.errors?.['required']" class="alert alert-danger">
+                        State Is Required!
+                    </div>
+                    <div *ngIf="formData.controls['state'].errors?.['minlength']" class="alert alert-danger">
+                        State must be at least 4 characters!
+                    </div>
+                </div>
+
+                <div class="mb-2 mx-3">
+                    <label for="ordertotal" class="form-label">Order Total:</label>
+                    <input type="text" class="form-control" id="ordertotal" name="ordertotal"
+                        formControlName="orderTotal">
+                </div>
+                <div *ngIf="formData.get('orderTotal')?.invalid && formData.get('orderTotal')?.['touched'] ||  formData.get('orderTotal')?.['dirty']"
+                    class="mx-3">
+                    <div *ngIf="formData.get('orderTotal')?.errors?.['required']" class="alert alert-danger">
+                        Order Total Is Required!
+                    </div>
+                </div>
+
+              
+                <div *ngIf="formData.invalid" class="alert alert-danger mx-3 ">
+                    Please fill the user data to add it.
+                </div> 
+                 <button type="submit" class="btn btn-secondary mx-3 float-end" (click)="onSubmit()"
+                    [disabled]="formData.invalid">Add new
+                    user</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
